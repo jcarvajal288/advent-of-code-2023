@@ -17,8 +17,11 @@
 (defn pad [n val coll]
   (take n (concat coll (repeat val))))
 
+(defn is-digit? [c]
+  (Character/isDigit ^char c))
+
 (defn is-number? [s]
-  (every? #(Character/isDigit ^char %) s))
+  (every? is-digit? s))
 
 (defn assoc-if-new [coll k v]
   (merge {k v} coll))
